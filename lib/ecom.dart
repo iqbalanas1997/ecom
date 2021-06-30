@@ -22,6 +22,8 @@ class _EcomState extends State<Ecom> {
         drawer: MyDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.white,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.blue),
           title: Center(
               child: Text(
             "Ecom App UI",
