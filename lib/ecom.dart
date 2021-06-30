@@ -1,4 +1,5 @@
 import 'package:ecom/profile.dart';
+import 'package:ecom/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'cart.dart';
@@ -18,6 +19,7 @@ class _EcomState extends State<Ecom> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        drawer: MyDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Center(
@@ -70,15 +72,11 @@ class _EcomState extends State<Ecom> {
                 MaterialButton(
                   minWidth: 50,
                   onPressed: () {
-                    setState(() {
-                      currentTab = 2;
-                      currentScreen = Cart();
-                    });
+                    setState(() {});
                   },
                   child: Icon(
                     Icons.search,
                     size: 40,
-                    color: currentTab == 2 ? Colors.purple : Colors.grey,
                   ),
                 ),
                 MaterialButton(
