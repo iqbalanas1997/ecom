@@ -1,8 +1,5 @@
-import 'package:ecom/like.dart';
-import 'package:ecom/widget/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dart:convert';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -27,6 +24,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: new Column(
+          
       children: <Widget>[
         Row(
           children: [
@@ -62,14 +60,71 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 20,
         ),
+
         Container(
-          height: 180,
-          width: 400,
-          color: Colors.black12,
-          child: Text("Carousel"),
-        ),
+            child: CarouselSlider(
+          options: CarouselOptions(
+            height: 160.0,
+            autoPlay: true,
+            aspectRatio: 16 / 9,
+            enableInfiniteScroll: true,
+            //autoPlayInterval: Duration(seconds: 2),
+            reverse: false,
+            autoPlayCurve: Curves.fastOutSlowIn,
+            scrollDirection: Axis.horizontal,
+          ),
+          items: [
+            "assets/tab.jpg",
+            "assets/cam.jpg",
+            "assets/roadster.jpg",
+            "assets/royalfield.jpg",
+            "assets/mutton.jpg",
+          ].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 150,
+                              width: 270,
+                              color: Colors.blue,
+                              child: Image.asset(
+                                "$i",
+                                height: 150,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
+                        ),
+                        // Row(
+                        //   children: [
+                        //     Container(
+                        //       height: 45,
+                        //       width: 270,
+                        //       color: Colors.red,
+                        //     )
+                        //   ],
+                        // )
+                      ],
+                    ));
+              },
+            );
+          }).toList(),
+        )),
+
         SizedBox(
-          height: 20,
+          height: 5,
         ),
         Container(
             height: 30,
@@ -78,84 +133,201 @@ class _HomeState extends State<Home> {
               "More Catagories",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             )),
-        SizedBox(
-          height: 5,
-        ),
+
+        // Container(
+        //     height: 60,
+        //     width: 400,
+        //     color: Colors.blue,
+        //     child: SingleChildScrollView(
+        //       scrollDirection: Axis.horizontal,
+        //       child: Column(
+        //         children: [
+        //           Row(
+        //             children: [
+        //               Container(
+        //                 height: 50,
+        //                 width: 150,
+        //                 color: Colors.amber,
+        //                 child: Text("Iqbal Anas"),
+        //               ),
+        //               SizedBox(
+        //                 width: 10,
+        //               ),
+        //               Container(
+        //                 height: 50,
+        //                 width: 150,
+        //                 color: Colors.black,
+        //                 child: Text(
+        //                   "Cloths",
+        //                   style: TextStyle(fontSize: 20),
+        //                 ),
+        //               ),
+        //               SizedBox(
+        //                 width: 10,
+        //               ),
+        //               Container(
+        //                 height: 50,
+        //                 width: 150,
+        //                 color: Colors.amber,
+        //                 child: Text(
+        //                   "Cloths",
+        //                   style: TextStyle(fontSize: 20),
+        //                 ),
+        //               ),
+        //               SizedBox(
+        //                 width: 10,
+        //               ),
+        //               Container(
+        //                 height: 50,
+        //                 width: 150,
+        //                 color: Colors.amber,
+        //                 child: Text(
+        //                   "Cloths",
+        //                   style: TextStyle(fontSize: 20),
+        //                 ),
+        //               ),
+        //               SizedBox(
+        //                 width: 10,
+        //               ),
+        //             ],
+        //           )
+        //         ],
+        //       ),
+        //     )),
+
         Container(
-            height: 60,
-            width: 400,
-            color: Colors.blue,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        height: 50,
-                        width: 150,
-                        color: Colors.amber,
-                        child: Text(
-                          "Cloths",
-                          style: TextStyle(fontSize: 20),
-                        ),
+          margin: EdgeInsets.symmetric(vertical: 2.0),
+          height: 65,
+          decoration: BoxDecoration(
+            color: Colors.black54,
+          ),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              Container(
+                  width: 150,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(0.0),
+                  margin: const EdgeInsets.all(0.0),
+                  child: ListTile(
+                    //
+                    leading:
+                        Icon(Icons.shopping_bag, size: 40, color: Colors.black),
+                    title: Text(
+                      "Cloths",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 50,
-                        width: 150,
-                        color: Colors.amber,
-                        child: Text(
-                          "Cloths",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 50,
-                        width: 150,
-                        color: Colors.amber,
-                        child: Text(
-                          "Cloths",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 50,
-                        width: 150,
-                        color: Colors.amber,
-                        child: Text(
-                          "Cloths",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 50,
-                        width: 150,
-                        color: Colors.amber,
-                        child: Text(
-                          "Cloths",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                    ],
-                  )
-                ],
+                    ),
+                    subtitle: Text("5 items"),
+                  )),
+              SizedBox(
+                width: 3,
               ),
-            )),
+              Container(
+                  width: 160,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(0.0),
+                  margin: const EdgeInsets.all(0.0),
+                  child: ListTile(
+                    //
+                    leading: Icon(Icons.electrical_services_rounded,
+                        size: 40, color: Colors.black),
+                    title: Text(
+                      "Electronic",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text("5 items"),
+                  )),
+              SizedBox(
+                width: 3,
+              ),
+              Container(
+                  width: 170,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(0.0),
+                  margin: const EdgeInsets.all(0.0),
+                  child: ListTile(
+                    //
+                    leading: Icon(Icons.chair_alt_rounded,
+                        size: 40, color: Colors.black),
+                    title: Text(
+                      "Households",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text("5 items"),
+                  )),
+              SizedBox(
+                width: 3,
+              ),
+              Container(
+                  width: 165,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(0.0),
+                  margin: const EdgeInsets.all(0.0),
+                  child: ListTile(
+                    //
+                    leading:
+                        Icon(Icons.home_work, size: 40, color: Colors.black),
+                    title: Text(
+                      "Appliances",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text("5 items"),
+                  )),
+              SizedBox(
+                width: 3,
+              ),
+              Container(
+                  width: 150,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(0.0),
+                  margin: const EdgeInsets.all(0.0),
+                  child: ListTile(
+                    //
+                    leading: Icon(Icons.arrow_forward_ios,
+                        size: 40, color: Colors.black),
+                    title: Text(
+                      "Others",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text("5 items"),
+                  )),
+              SizedBox(
+                width: 3,
+              ),
+            ],
+          ),
+        ),
+
         SizedBox(
           height: 5,
         ),

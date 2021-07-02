@@ -9,8 +9,14 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      color: Colors.red,
-    ));
+     
+      body: ListView(
+        physics: BouncingScrollPhysics(),
+        children: [
+          
+        ],
+        
+      ),
+    );
   }
 }

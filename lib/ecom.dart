@@ -1,5 +1,6 @@
 import 'package:ecom/profile.dart';
 import 'package:ecom/widget/drawer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cart.dart';
@@ -14,7 +15,7 @@ class Ecom extends StatefulWidget {
 class _EcomState extends State<Ecom> {
   int currentTab = 0;
   Widget currentScreen = Home();
-
+  final icon = CupertinoIcons.moon_stars;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,6 +25,12 @@ class _EcomState extends State<Ecom> {
           backgroundColor: Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.blue),
+          actions: [
+            IconButton(
+              icon: Icon(icon),
+              onPressed: () {},
+            )
+          ],
           title: Center(
               child: Text(
             "Ecom App UI",

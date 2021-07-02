@@ -1,0 +1,52 @@
+ Container(
+            child: CarouselSlider(
+          options: CarouselOptions(height: 200.0),
+          items: [
+            "assets/tab.jpg",
+            "assets/cam.jpg",
+            "assets/roadster.jpg",
+            "assets/royalfield.jpg",
+            "assets/mutton.jpg",
+          ].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 150,
+                              width: 270,
+                              color: Colors.blue,
+                              child: Image.asset(
+                                "$i",
+                                height: 150,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              height: 45,
+                              width: 270,
+                              color: Colors.red,
+                            )
+                          ],
+                        )
+                      ],
+                    ));
+              },
+            );
+          }).toList(),
+        )),
