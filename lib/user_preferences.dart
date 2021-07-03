@@ -6,7 +6,8 @@ class UserPreferences {
     imagePath: 'assets/iqbal.jpg',
     name: 'Iqbal Anas',
     email: 'iqblanas99.ia@gmail.com',
-    about: 'Hybrid Mobile Fluuter Application Developer',
+    about:
+        'Skilled at Interaction Design, UI/UX of android application development for front - end design with and expertise in Object Oriented Programming concepts.',
     isDarkMode: false,
   );
 }

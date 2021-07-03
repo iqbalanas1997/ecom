@@ -19,6 +19,9 @@ class _EcomState extends State<Ecom> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        dividerColor: Colors.grey,
+      ),
       home: Scaffold(
         drawer: MyDrawer(),
         appBar: AppBar(

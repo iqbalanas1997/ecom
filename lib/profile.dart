@@ -1,7 +1,9 @@
+import 'package:ecom/editprofile.dart';
 import 'package:ecom/profilewidget.dart';
 import 'package:ecom/user_preferences.dart';
 import 'package:ecom/users.dart';
 import 'package:ecom/widget/buttonwidget.dart';
+import 'package:ecom/widget/numberswidget.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -19,7 +21,12 @@ class _ProfileState extends State<Profile> {
         children: [
           ProfileWidget(
             imagePath: user.imagePath,
-            onClicked: () async {},
+            isEdit: false,
+            onClicked: () async {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => EditProfile()),
+              );
+            },
           ),
           SizedBox(
             height: 24,
@@ -29,6 +36,14 @@ class _ProfileState extends State<Profile> {
             height: 24,
           ),
           Center(child: buildUpgradeBtn()),
+          SizedBox(
+            height: 24,
+          ),
+          NumbersWidget(),
+          SizedBox(
+            height: 24,
+          ),
+          buildAbout(user),
         ],
       ),
     );
@@ -54,4 +69,24 @@ class _ProfileState extends State<Profile> {
         text: 'Upgrade to pro',
         onClicked: () {},
       );
+
+  Widget buildAbout(Users user) {
+    return Container(
+      padding: EdgeInsets.all(30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "About",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(user.about)
+        ],
+      ),
+    );
+  }
 }
