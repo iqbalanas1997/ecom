@@ -1,5 +1,4 @@
 import 'package:ecom/users.dart';
-import 'package:flutter/material.dart';
 
 class UserPreferences {
   static const myUser = Users(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'ecom.dart';
-import 'editprofile.dart';
 
 void main() {
   runApp(MyApp());
