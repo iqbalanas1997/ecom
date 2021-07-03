@@ -10,7 +10,13 @@ class _LikeState extends State<Like> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      color: Colors.yellow,
+      width: 500,
+      height: 500,
+      child: Image.asset(
+        "assets/workinprogress.jpeg",
+        width: 500,
+        height: 500,
+      ),
     ));
   }
 }

@@ -1,0 +1,52 @@
+Container(
+            height: 60,
+            width: 400,
+            color: Colors.blue,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 150,
+                        color: Colors.amber,
+                        child: Text("Iqbal Anas"),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 50,
+                        width: 150,
+                        color: Colors.amber,
+                        child: Text(
+                          "Cloths",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 50,
+                        width: 150,
+                        color: Colors.amber,
+                        child: Text(
+                          "Cloths",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 50,
+                        width: 150,
+                        color: Colors.amber,
+                        child: Text(
+                          "Cloths",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
